@@ -82,7 +82,6 @@ function getDeckCards (deckNumbers, cardsData, level) {
             deckCards.add(cardsData[randomNumber]);
            }
         }
-           
     if (level === 'very-easy') {
         console.log('level very-easy')
         let numberEasy = getNumberLevelCards('easy',cardsData);
@@ -187,10 +186,8 @@ function getDeckStageCards (deckNumbers, cardsData) {
 };
 
 
-let miniDeckGreen
-let miniDeckBlue 
-let miniDeckBrown
-let level
+let miniDeckGreen, miniDeckBlue, miniDeckBrown, level
+
 // создаем мини-колоды по цветам карт
 function getMiniDeck () {
     console.log('getMiniDeck')
@@ -218,10 +215,6 @@ function getFullDeck () {
     fullDeck = fullDeck.concat((getDeckStage('thirdStage')),(getDeckStage('secondStage')),(getDeckStage('firstStage')));
 
 };
-
-
-
-
 
 
 
