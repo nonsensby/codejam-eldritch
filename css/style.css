@@ -1,0 +1,72 @@
+.wrapper {
+    max-width: 1920px;
+    display: flex;
+    flex-direction: column; 
+    background-image: url(../assets/home.png) ;  
+    background-repeat: no-repeat;
+    background-size: cover;
+    gap: 20px;
+    height: 100vh;
+    padding: 1%;
+    overflow-x: hidden;
+    }
+
+.ancients {
+    display: flex;
+    max-height: 40%;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.ancients img {
+    max-height: 90%;
+    cursor: pointer;
+    
+}
+.ancients img active {
+    border: 2px solid red;
+    
+}
+
+
+.difficulties {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-height: 10%;
+    
+}
+.difficulties button {
+    cursor: pointer;
+}
+
+.card-shuffle {
+    max-height: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    }
+
+.shuffle {
+    display: flex;
+    align-items: center;
+    
+}
+
+.shuffle button{
+    cursor: pointer;
+}
+
+.card-hidden img {
+    max-height: 90%;
+    cursor: pointer;
+}
+
+.card-open {
+   max-width: 33%;
+}
+
+.card-open img {
+    max-height: 90%;
+    
+}
