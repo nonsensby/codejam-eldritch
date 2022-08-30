@@ -3,6 +3,7 @@ import cardsDataBlue from '../data/mythicCards/blue/index.js';
 import cardsDataBrown from '../data/mythicCards/brown/index.js';
 import cardsDataGreen from '../data/mythicCards/green/index.js';
 
+
 //поиск случайного числа
 function getRandomNum(min, max){
     min = Math.ceil(min);
@@ -82,7 +83,6 @@ function getDeckCards (deckNumbers, cardsData, level) {
             deckCards.add(cardsData[randomNumber]);
            }
         }
-           
     if (level === 'very-easy') {
         console.log('level very-easy')
         let numberEasy = getNumberLevelCards('easy',cardsData);
@@ -187,10 +187,8 @@ function getDeckStageCards (deckNumbers, cardsData) {
 };
 
 
-let miniDeckGreen
-let miniDeckBlue 
-let miniDeckBrown
-let level
+let miniDeckGreen, miniDeckBlue, miniDeckBrown, level
+
 // создаем мини-колоды по цветам карт
 function getMiniDeck () {
     console.log('getMiniDeck')
@@ -221,42 +219,10 @@ function getFullDeck () {
 
 
 
-
-
-
-
 const shuffleCard = document.getElementById('shuffle') 
 shuffleCard.addEventListener('click',getFullDeck) 
 
 
-const changeLevelNormal = document.getElementById('normal');
-changeLevelNormal.addEventListener('click', () => {
-    level = 'normal';
-    getMiniDeck();
-
-});
-
-const changeLevelVeryEasy = document.getElementById('very-easy');
-changeLevelVeryEasy.addEventListener('click', () => {
-    level = 'very-easy';
-    getMiniDeck();
-});
-const changeLevelEasy = document.getElementById('easy');
-changeLevelEasy.addEventListener('click', () => {
-    level = 'easy';
-    getMiniDeck();
-});
-
-const changeLevelHard = document.getElementById('hard');
-changeLevelHard.addEventListener('click', () => {
-    level = 'hard';
-    getMiniDeck();
-});
-const changeLevelVeryHard = document.getElementById('very-hard');
-changeLevelVeryHard.addEventListener('click', () => {
-    level = 'very-hard';
-    getMiniDeck();
-});
 
 
 
@@ -270,32 +236,112 @@ cardOpen.src = openCard.src;
 
 })
 
+// блок работы с выбором древнего
+const ancients= document.querySelectorAll('.ancients-item');
+//функция снятия/включения активности с древнего
+
+function clearActiveAncient (str) {
+    for (let i=0; i < ancients.length; i++ ) {
+       if (ancients[i].className === 'ancients-item _active') {
+        ancients[i].classList.remove('_active')
+      }
+      if (ancients[i].id === str.id) {
+         ancients[i].classList.add('_active')
+      }
+    }
+}
+
+
+
 
 
 const ancientAzathoth = document.getElementById('azathoth');
 ancientAzathoth.addEventListener('click', () => {
     ancient = getAncient('azathoth')
-    console.log('ancient is ',ancient )
+    
     getColorNumberCards();
-    ancientAzathoth.classList.add('active')
+    clearActiveAncient(ancient);
+   
 })
+
 const ancientCthulhu = document.getElementById('cthulhu');
 ancientCthulhu.addEventListener('click', () => {
     ancient = getAncient('cthulhu')
-    console.log('ancient is ',ancient )
     getColorNumberCards();
+    clearActiveAncient(ancient);
 })
 
-const ancientIhogSothot = document.getElementById('ihogSothoth');
+const ancientIhogSothot = document.getElementById('iogSothoth');
 ancientIhogSothot.addEventListener('click', () => {
-    ancient = getAncient('iogSothoth')
-    console.log('ancient is ',ancient )
+    
+    ancient = getAncient("iogSothoth")
+    
     getColorNumberCards();
+    clearActiveAncient(ancient);
 })
 
 const ancientShubNiggurath = document.getElementById('shubNiggurath');
 ancientShubNiggurath.addEventListener('click', () => {
     ancient = getAncient('shubNiggurath')
-    console.log('ancient is ',ancient )
-    getColorNumberCards();
+     getColorNumberCards();
+    clearActiveAncient(ancient);
 })
+
+//конец блока выбора древнего
+
+//блок выбора уровня игры
+const changeLevelButtons = document.querySelectorAll('.button-item ');
+
+
+//функция снятия/включения активности с кнопки уровня
+
+function clearActiveLevel (str) {
+    console.log('clearActiveLevel run')
+   for (let i=0; i < changeLevelButtons.length; i++ ) {
+       console.log(changeLevelButtons[i])
+       
+        if (changeLevelButtons[i].className === 'button-item _active') {
+        changeLevelButtons[i].classList.remove('_active')
+      }
+     if (changeLevelButtons[i].id === str) {
+      changeLevelButtons[i].classList.add('_active')
+      }
+      
+    }
+}
+
+
+
+const changeLevelNormal = document.getElementById('normal');
+changeLevelNormal.addEventListener('click', () => {
+    level = 'normal';
+    getMiniDeck();
+    clearActiveLevel(level);
+
+});
+
+const changeLevelVeryEasy = document.getElementById('very-easy');
+changeLevelVeryEasy.addEventListener('click', () => {
+    level = 'very-easy';
+    getMiniDeck();
+    clearActiveLevel(level);
+});
+const changeLevelEasy = document.getElementById('easy');
+changeLevelEasy.addEventListener('click', () => {
+    level = 'easy';
+    getMiniDeck();
+    clearActiveLevel(level);
+});
+
+const changeLevelHard = document.getElementById('hard');
+changeLevelHard.addEventListener('click', () => {
+    level = 'hard';
+    getMiniDeck();
+    clearActiveLevel(level);
+});
+const changeLevelVeryHard = document.getElementById('very-hard');
+changeLevelVeryHard.addEventListener('click', () => {
+    level = 'very-hard';
+    getMiniDeck();
+    clearActiveLevel(level);
+});
