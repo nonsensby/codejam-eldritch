@@ -49,6 +49,10 @@
     line-height: 40px;
     }
 
+  .button-item._active  {
+    background-color: rgba(193, 54, 54, 1) ;
+  }
+
 .card-shuffle {
     max-height: 35%;
     display: flex;
