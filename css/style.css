@@ -23,9 +23,9 @@
     cursor: pointer;
     
 }
-.ancients img active {
-    border: 2px solid red;
-    
+
+.ancients-item._active {
+    border: 4px solid purple;
 }
 
 
@@ -33,18 +33,28 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    max-height: 10%;
+    max-height: 15%;
     
 }
+
+
 .difficulties button {
     cursor: pointer;
-}
+    background-color: rgba(193, 54, 54, 0.5);
+    border: none;
+    border-radius: 5%;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 40px;
+    }
 
 .card-shuffle {
-    max-height: 40%;
+    max-height: 35%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    
     }
 
 .shuffle {
@@ -55,6 +65,14 @@
 
 .shuffle button{
     cursor: pointer;
+    background-color: rgba(29, 105, 198, 1);
+    border: none;
+    border-radius: 5%;
+    font-style: normal;
+    color: yellow;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 40px;
 }
 
 .card-hidden img {

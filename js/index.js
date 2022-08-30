@@ -3,6 +3,7 @@ import cardsDataBlue from '../data/mythicCards/blue/index.js';
 import cardsDataBrown from '../data/mythicCards/brown/index.js';
 import cardsDataGreen from '../data/mythicCards/green/index.js';
 
+console.log('ancientsData',ancientsData)
 //поиск случайного числа
 function getRandomNum(min, max){
     min = Math.ceil(min);
@@ -263,32 +264,59 @@ cardOpen.src = openCard.src;
 
 })
 
+// работа с выбором древнего
+const ancients= document.querySelectorAll('.ancients-item');
+
+
+//функция снятия активности с древнего
+
+function clearActiveAncient (str) {
+    for (let i=0; i < ancients.length; i++ ) {
+       if (ancients[i].className === 'ancients-item _active') {
+        ancients[i].classList.remove('_active')
+      }
+      if (ancients[i].id === str.id) {
+         ancients[i].classList.add('_active')
+      }
+    }
+}
+
+
+
 
 
 const ancientAzathoth = document.getElementById('azathoth');
 ancientAzathoth.addEventListener('click', () => {
     ancient = getAncient('azathoth')
-    console.log('ancient is ',ancient )
+    
     getColorNumberCards();
-    ancientAzathoth.classList.add('active')
+    clearActiveAncient(ancient);
+   
 })
+
 const ancientCthulhu = document.getElementById('cthulhu');
 ancientCthulhu.addEventListener('click', () => {
     ancient = getAncient('cthulhu')
-    console.log('ancient is ',ancient )
     getColorNumberCards();
+    clearActiveAncient(ancient);
 })
 
-const ancientIhogSothot = document.getElementById('ihogSothoth');
+const ancientIhogSothot = document.getElementById('iogSothoth');
 ancientIhogSothot.addEventListener('click', () => {
-    ancient = getAncient('iogSothoth')
-    console.log('ancient is ',ancient )
+    
+    ancient = getAncient("iogSothoth")
+    
     getColorNumberCards();
+    clearActiveAncient(ancient);
 })
 
 const ancientShubNiggurath = document.getElementById('shubNiggurath');
 ancientShubNiggurath.addEventListener('click', () => {
     ancient = getAncient('shubNiggurath')
-    console.log('ancient is ',ancient )
-    getColorNumberCards();
+     getColorNumberCards();
+    clearActiveAncient(ancient);
 })
+
+
+
+
